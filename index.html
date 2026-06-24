@@ -4,7 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Guida Completa a Git</title>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
         --bg: #0d1117;
@@ -17,11 +20,15 @@
         --accent4: #d2a8ff;
         --text: #e6edf3;
         --muted: #8b949e;
-        --mono: 'JetBrains Mono', monospace;
-        --sans: 'Inter', sans-serif;
+        --mono: "JetBrains Mono", monospace;
+        --sans: "Inter", sans-serif;
       }
 
-      * { box-sizing: border-box; margin: 0; padding: 0; }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
       body {
         background: var(--bg);
@@ -33,7 +40,12 @@
 
       /* HERO */
       .hero {
-        background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #0d1117 100%);
+        background: linear-gradient(
+          135deg,
+          #0d1117 0%,
+          #161b22 50%,
+          #0d1117 100%
+        );
         border-bottom: 1px solid var(--border);
         padding: 80px 24px 60px;
         text-align: center;
@@ -41,11 +53,18 @@
         overflow: hidden;
       }
       .hero::before {
-        content: '';
+        content: "";
         position: absolute;
-        top: -80px; left: 50%; transform: translateX(-50%);
-        width: 600px; height: 300px;
-        background: radial-gradient(ellipse, rgba(88,166,255,0.12) 0%, transparent 70%);
+        top: -80px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 600px;
+        height: 300px;
+        background: radial-gradient(
+          ellipse,
+          rgba(88, 166, 255, 0.12) 0%,
+          transparent 70%
+        );
         pointer-events: none;
       }
       .hero-eyebrow {
@@ -63,7 +82,9 @@
         line-height: 1.1;
         margin-bottom: 20px;
       }
-      .hero h1 span { color: var(--accent); }
+      .hero h1 span {
+        color: var(--accent);
+      }
       .hero p {
         color: var(--muted);
         font-size: 1.1rem;
@@ -111,9 +132,14 @@
         font-size: 13px;
         font-weight: 500;
         border-bottom: 2px solid transparent;
-        transition: color 0.2s, border-color 0.2s;
+        transition:
+          color 0.2s,
+          border-color 0.2s;
       }
-      nav a:hover { color: var(--text); border-color: var(--border); }
+      nav a:hover {
+        color: var(--text);
+        border-color: var(--border);
+      }
 
       /* LAYOUT */
       main {
@@ -136,8 +162,8 @@
         font-family: var(--mono);
         font-size: 11px;
         color: var(--accent);
-        background: rgba(88,166,255,0.1);
-        border: 1px solid rgba(88,166,255,0.2);
+        background: rgba(88, 166, 255, 0.1);
+        border: 1px solid rgba(88, 166, 255, 0.2);
         padding: 4px 10px;
         border-radius: 4px;
         flex-shrink: 0;
@@ -153,8 +179,13 @@
         color: var(--accent4);
         margin: 32px 0 12px;
       }
-      p { color: #c9d1d9; margin-bottom: 16px; }
-      p:last-of-type { margin-bottom: 0; }
+      p {
+        color: #c9d1d9;
+        margin-bottom: 16px;
+      }
+      p:last-of-type {
+        margin-bottom: 0;
+      }
 
       /* COMMAND CARDS */
       .cmd-grid {
@@ -170,7 +201,9 @@
         padding: 16px;
         transition: border-color 0.2s;
       }
-      .cmd-card:hover { border-color: var(--accent); }
+      .cmd-card:hover {
+        border-color: var(--accent);
+      }
       .cmd-name {
         font-family: var(--mono);
         font-size: 13px;
@@ -181,7 +214,7 @@
         gap: 8px;
       }
       .cmd-name::before {
-        content: '$';
+        content: "$";
         color: var(--muted);
       }
       .cmd-desc {
@@ -202,16 +235,27 @@
         font-size: 13px;
         line-height: 1.6;
       }
-      .line-comment { color: var(--muted); }
-      .line-cmd { color: var(--accent2); }
-      .line-flag { color: var(--accent); }
-      .line-out { color: var(--muted); font-style: italic; }
-      .prompt { color: var(--accent3); }
+      .line-comment {
+        color: var(--muted);
+      }
+      .line-cmd {
+        color: var(--accent2);
+      }
+      .line-flag {
+        color: var(--accent);
+      }
+      .line-out {
+        color: var(--muted);
+        font-style: italic;
+      }
+      .prompt {
+        color: var(--accent3);
+      }
 
       /* INFO BOXES */
       .info-box {
         border-left: 3px solid var(--accent);
-        background: rgba(88,166,255,0.06);
+        background: rgba(88, 166, 255, 0.06);
         padding: 16px 20px;
         border-radius: 0 8px 8px 0;
         margin: 20px 0;
@@ -220,14 +264,15 @@
       }
       .warn-box {
         border-left: 3px solid var(--accent3);
-        background: rgba(247,129,102,0.06);
+        background: rgba(247, 129, 102, 0.06);
         padding: 16px 20px;
         border-radius: 0 8px 8px 0;
         margin: 20px 0;
         font-size: 14px;
         color: #c9d1d9;
       }
-      .info-box strong, .warn-box strong {
+      .info-box strong,
+      .warn-box strong {
         display: block;
         margin-bottom: 4px;
         font-size: 12px;
@@ -280,10 +325,29 @@
         letter-spacing: 1px;
         text-transform: uppercase;
       }
-      .conflict-mine { background: rgba(63,185,80,0.08); padding: 12px 16px; color: var(--accent2); }
-      .conflict-sep { background: var(--surface2); padding: 6px 16px; color: var(--muted); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-      .conflict-theirs { background: rgba(247,129,102,0.08); padding: 12px 16px; color: var(--accent3); }
-      .conflict-end { padding: 6px 16px; color: var(--muted); border-top: 1px solid var(--border); background: var(--surface2); }
+      .conflict-mine {
+        background: rgba(63, 185, 80, 0.08);
+        padding: 12px 16px;
+        color: var(--accent2);
+      }
+      .conflict-sep {
+        background: var(--surface2);
+        padding: 6px 16px;
+        color: var(--muted);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+      .conflict-theirs {
+        background: rgba(247, 129, 102, 0.08);
+        padding: 12px 16px;
+        color: var(--accent3);
+      }
+      .conflict-end {
+        padding: 6px 16px;
+        color: var(--muted);
+        border-top: 1px solid var(--border);
+        background: var(--surface2);
+      }
 
       /* DIVIDER */
       hr {
@@ -303,18 +367,26 @@
       }
 
       @media (max-width: 600px) {
-        .cmd-grid { grid-template-columns: 1fr; }
-        .flow { gap: 8px; }
-        .flow-arrow { display: none; }
+        .cmd-grid {
+          grid-template-columns: 1fr;
+        }
+        .flow {
+          gap: 8px;
+        }
+        .flow-arrow {
+          display: none;
+        }
       }
     </style>
   </head>
   <body>
-
     <div class="hero">
       <div class="hero-eyebrow">Guida Completa</div>
       <h1>Controllo versione con <span>Git</span></h1>
-      <p>Tutto quello che devi sapere: dai concetti base al branching avanzato, dai conflitti al workflow professionale.</p>
+      <p>
+        Tutto quello che devi sapere: dai concetti base al branching avanzato,
+        dai conflitti al workflow professionale.
+      </p>
       <div class="hero-tags">
         <span class="tag">controllo versione</span>
         <span class="tag">branching</span>
@@ -336,7 +408,6 @@
     </nav>
 
     <main>
-
       <!-- SEZIONE 1: COS'È GIT -->
       <section id="cos-e-git">
         <div class="section-header">
@@ -344,17 +415,33 @@
           <h2>Cos'è Git e perché usarlo</h2>
         </div>
 
-        <p>Git è un <strong>sistema di controllo versione distribuito</strong> (DVCS) creato da Linus Torvalds nel 2005. Permette di registrare ogni modifica al codice sorgente nel tempo, tornare a versioni precedenti, collaborare con altri sviluppatori e tenere separate le sperimentazioni dalla versione stabile.</p>
+        <p>
+          Git è un
+          <strong>sistema di controllo versione distribuito</strong> (DVCS)
+          creato da Linus Torvalds nel 2005. Permette di registrare ogni
+          modifica al codice sorgente nel tempo, tornare a versioni precedenti,
+          collaborare con altri sviluppatori e tenere separate le
+          sperimentazioni dalla versione stabile.
+        </p>
 
-        <p>A differenza dei sistemi centralizzati, con Git ogni sviluppatore possiede una copia completa della storia del progetto sul proprio computer. Questo significa che puoi lavorare offline e che non esiste un unico punto di fallimento.</p>
+        <p>
+          A differenza dei sistemi centralizzati, con Git ogni sviluppatore
+          possiede una copia completa della storia del progetto sul proprio
+          computer. Questo significa che puoi lavorare offline e che non esiste
+          un unico punto di fallimento.
+        </p>
 
         <div class="info-box">
           <strong>Concetto chiave</strong>
-          Git non salva "differenze" tra file, ma <em>snapshot</em> dell'intero progetto ad ogni commit. Questo lo rende estremamente veloce nelle operazioni di confronto e navigazione della storia.
+          Git non salva "differenze" tra file, ma <em>snapshot</em> dell'intero
+          progetto ad ogni commit. Questo lo rende estremamente veloce nelle
+          operazioni di confronto e navigazione della storia.
         </div>
 
         <h3>I tre stati di Git</h3>
-        <p>Ogni file nel tuo progetto si trova sempre in uno di questi tre stati:</p>
+        <p>
+          Ogni file nel tuo progetto si trova sempre in uno di questi tre stati:
+        </p>
 
         <div class="flow">
           <div class="flow-step">Working Directory</div>
@@ -364,16 +451,25 @@
           <div class="flow-step">Repository</div>
         </div>
 
-        <p><strong>Working Directory</strong> è dove modifichi i file. <strong>Staging Area</strong> (o index) è dove prepari le modifiche da includere nel prossimo commit. <strong>Repository</strong> è il database permanente di tutti i commit.</p>
+        <p>
+          <strong>Working Directory</strong> è dove modifichi i file.
+          <strong>Staging Area</strong> (o index) è dove prepari le modifiche da
+          includere nel prossimo commit. <strong>Repository</strong> è il
+          database permanente di tutti i commit.
+        </p>
 
         <div class="cmd-grid">
           <div class="cmd-card">
             <div class="cmd-name">git --version</div>
-            <div class="cmd-desc">Verifica la versione di Git installata sul sistema</div>
+            <div class="cmd-desc">
+              Verifica la versione di Git installata sul sistema
+            </div>
           </div>
           <div class="cmd-card">
             <div class="cmd-name">git config --global user.name "Nome"</div>
-            <div class="cmd-desc">Imposta il nome che apparirà in ogni commit</div>
+            <div class="cmd-desc">
+              Imposta il nome che apparirà in ogni commit
+            </div>
           </div>
           <div class="cmd-card">
             <div class="cmd-name">git config --global user.email "email"</div>
@@ -381,7 +477,9 @@
           </div>
           <div class="cmd-card">
             <div class="cmd-name">git config --list</div>
-            <div class="cmd-desc">Mostra tutte le impostazioni di configurazione attive</div>
+            <div class="cmd-desc">
+              Mostra tutte le impostazioni di configurazione attive
+            </div>
           </div>
         </div>
       </section>
@@ -393,7 +491,21 @@
           <h2>Controllare un Repository</h2>
         </div>
 
-        <p>Un <strong>repository</strong> (o "repo") è la cartella del progetto tracciata da Git. Contiene tutti i file del progetto più la directory nascosta <code style="font-family: var(--mono); color: var(--accent); background: rgba(88,166,255,0.1); padding: 2px 6px; border-radius: 3px;">.git/</code>, dove Git conserva l'intera storia delle modifiche.</p>
+        <p>
+          Un <strong>repository</strong> (o "repo") è la cartella del progetto
+          tracciata da Git. Contiene tutti i file del progetto più la directory
+          nascosta
+          <code
+            style="
+              font-family: var(--mono);
+              color: var(--accent);
+              background: rgba(88, 166, 255, 0.1);
+              padding: 2px 6px;
+              border-radius: 3px;
+            "
+            >.git/</code
+          >, dove Git conserva l'intera storia delle modifiche.
+        </p>
 
         <h3>Creare o ottenere un repository</h3>
         <pre><span class="line-comment"># Inizializza un nuovo repository nella cartella corrente</span>
@@ -420,27 +532,39 @@
         <div class="cmd-grid">
           <div class="cmd-card">
             <div class="cmd-name">git init</div>
-            <div class="cmd-desc">Crea un nuovo repository Git nella cartella corrente</div>
+            <div class="cmd-desc">
+              Crea un nuovo repository Git nella cartella corrente
+            </div>
           </div>
           <div class="cmd-card">
             <div class="cmd-name">git clone &lt;url&gt;</div>
-            <div class="cmd-desc">Clona un repository remoto in locale con tutta la sua storia</div>
+            <div class="cmd-desc">
+              Clona un repository remoto in locale con tutta la sua storia
+            </div>
           </div>
           <div class="cmd-card">
             <div class="cmd-name">git status</div>
-            <div class="cmd-desc">Mostra i file modificati, pronti per il commit o non tracciati</div>
+            <div class="cmd-desc">
+              Mostra i file modificati, pronti per il commit o non tracciati
+            </div>
           </div>
           <div class="cmd-card">
             <div class="cmd-name">git log --oneline --graph</div>
-            <div class="cmd-desc">Visualizza la storia dei commit in modo compatto e visivo</div>
+            <div class="cmd-desc">
+              Visualizza la storia dei commit in modo compatto e visivo
+            </div>
           </div>
           <div class="cmd-card">
             <div class="cmd-name">git diff</div>
-            <div class="cmd-desc">Mostra le differenze tra i file modificati e l'ultimo commit</div>
+            <div class="cmd-desc">
+              Mostra le differenze tra i file modificati e l'ultimo commit
+            </div>
           </div>
           <div class="cmd-card">
             <div class="cmd-name">git show &lt;commit&gt;</div>
-            <div class="cmd-desc">Mostra i dettagli e le modifiche di un commit specifico</div>
+            <div class="cmd-desc">
+              Mostra i dettagli e le modifiche di un commit specifico
+            </div>
           </div>
         </div>
       </section>
@@ -452,7 +576,11 @@
           <h2>Comandi Base</h2>
         </div>
 
-        <p>Il ciclo di lavoro quotidiano con Git ruota attorno a tre operazioni fondamentali: aggiungere modifiche all'area di staging, creare un commit, e inviare le modifiche al repository remoto.</p>
+        <p>
+          Il ciclo di lavoro quotidiano con Git ruota attorno a tre operazioni
+          fondamentali: aggiungere modifiche all'area di staging, creare un
+          commit, e inviare le modifiche al repository remoto.
+        </p>
 
         <h3>Il ciclo add → commit → push</h3>
         <pre><span class="line-comment"># 1. Aggiungi un file specifico allo staging</span>
@@ -469,7 +597,16 @@
 
         <div class="info-box">
           <strong>Buona pratica — messaggi di commit</strong>
-          Un buon messaggio di commit descrive <em>cosa</em> cambia e <em>perché</em>, non <em>come</em>. Usa l'imperativo: "Aggiunge login", "Corregge bug nel calcolo IVA". Molti team adottano la convenzione <a href="https://www.conventionalcommits.org" style="color: var(--accent);">Conventional Commits</a> (feat:, fix:, docs:...).
+          Un buon messaggio di commit descrive <em>cosa</em> cambia e
+          <em>perché</em>, non <em>come</em>. Usa l'imperativo: "Aggiunge
+          login", "Corregge bug nel calcolo IVA". Molti team adottano la
+          convenzione
+          <a
+            href="https://www.conventionalcommits.org"
+            style="color: var(--accent)"
+            >Conventional Commits</a
+          >
+          (feat:, fix:, docs:...).
         </div>
 
         <h3>Annullare modifiche</h3>
@@ -485,27 +622,39 @@
         <div class="cmd-grid">
           <div class="cmd-card">
             <div class="cmd-name">git add &lt;file&gt;</div>
-            <div class="cmd-desc">Aggiunge un file specifico all'area di staging</div>
+            <div class="cmd-desc">
+              Aggiunge un file specifico all'area di staging
+            </div>
           </div>
           <div class="cmd-card">
             <div class="cmd-name">git add .</div>
-            <div class="cmd-desc">Aggiunge tutti i file modificati e nuovi allo staging</div>
+            <div class="cmd-desc">
+              Aggiunge tutti i file modificati e nuovi allo staging
+            </div>
           </div>
           <div class="cmd-card">
             <div class="cmd-name">git commit -m "messaggio"</div>
-            <div class="cmd-desc">Crea un nuovo commit con il messaggio fornito</div>
+            <div class="cmd-desc">
+              Crea un nuovo commit con il messaggio fornito
+            </div>
           </div>
           <div class="cmd-card">
             <div class="cmd-name">git push origin &lt;branch&gt;</div>
-            <div class="cmd-desc">Invia i commit locali al repository remoto</div>
+            <div class="cmd-desc">
+              Invia i commit locali al repository remoto
+            </div>
           </div>
           <div class="cmd-card">
             <div class="cmd-name">git restore --staged &lt;file&gt;</div>
-            <div class="cmd-desc">Rimuove un file dallo staging senza perdere le modifiche</div>
+            <div class="cmd-desc">
+              Rimuove un file dallo staging senza perdere le modifiche
+            </div>
           </div>
           <div class="cmd-card">
             <div class="cmd-name">git commit --amend</div>
-            <div class="cmd-desc">Modifica l'ultimo commit (messaggio o contenuto)</div>
+            <div class="cmd-desc">
+              Modifica l'ultimo commit (messaggio o contenuto)
+            </div>
           </div>
         </div>
       </section>
@@ -517,7 +666,11 @@
           <h2>Comandi Utili</h2>
         </div>
 
-        <p>Oltre al ciclo base, Git offre strumenti potenti per navigare la storia, sincronizzare il lavoro con il team, rimuovere file e salvare temporaneamente il lavoro in corso.</p>
+        <p>
+          Oltre al ciclo base, Git offre strumenti potenti per navigare la
+          storia, sincronizzare il lavoro con il team, rimuovere file e salvare
+          temporaneamente il lavoro in corso.
+        </p>
 
         <h3>Sincronizzazione con il remoto</h3>
         <pre><span class="line-comment"># Scarica le modifiche dal remoto SENZA applicarle</span>
@@ -557,33 +710,53 @@
 
         <div class="warn-box">
           <strong>⚠ Attenzione</strong>
-          <code style="font-family: var(--mono); color: var(--accent3);">git reset --hard</code> scarta permanentemente le modifiche non committate. Prima di usarlo, considera <code style="font-family: var(--mono); color: var(--accent3);">git stash</code> per metterle al sicuro.
+          <code style="font-family: var(--mono); color: var(--accent3)"
+            >git reset --hard</code
+          >
+          scarta permanentemente le modifiche non committate. Prima di usarlo,
+          considera
+          <code style="font-family: var(--mono); color: var(--accent3)"
+            >git stash</code
+          >
+          per metterle al sicuro.
         </div>
 
         <div class="cmd-grid">
           <div class="cmd-card">
             <div class="cmd-name">git pull origin &lt;branch&gt;</div>
-            <div class="cmd-desc">Scarica e integra le modifiche dal repository remoto</div>
+            <div class="cmd-desc">
+              Scarica e integra le modifiche dal repository remoto
+            </div>
           </div>
           <div class="cmd-card">
             <div class="cmd-name">git fetch origin</div>
-            <div class="cmd-desc">Scarica le modifiche senza applicarle al branch locale</div>
+            <div class="cmd-desc">
+              Scarica le modifiche senza applicarle al branch locale
+            </div>
           </div>
           <div class="cmd-card">
             <div class="cmd-name">git stash / git stash pop</div>
-            <div class="cmd-desc">Salva e ripristina modifiche temporanee senza committare</div>
+            <div class="cmd-desc">
+              Salva e ripristina modifiche temporanee senza committare
+            </div>
           </div>
           <div class="cmd-card">
             <div class="cmd-name">git rm &lt;file&gt;</div>
-            <div class="cmd-desc">Rimuove un file dal progetto e dal tracciamento Git</div>
+            <div class="cmd-desc">
+              Rimuove un file dal progetto e dal tracciamento Git
+            </div>
           </div>
           <div class="cmd-card">
             <div class="cmd-name">git reset --soft HEAD~1</div>
-            <div class="cmd-desc">Annulla l'ultimo commit mantenendo le modifiche in staging</div>
+            <div class="cmd-desc">
+              Annulla l'ultimo commit mantenendo le modifiche in staging
+            </div>
           </div>
           <div class="cmd-card">
             <div class="cmd-name">git revert &lt;commit&gt;</div>
-            <div class="cmd-desc">Annulla un commit creando un nuovo commit inverso (sicuro)</div>
+            <div class="cmd-desc">
+              Annulla un commit creando un nuovo commit inverso (sicuro)
+            </div>
           </div>
         </div>
       </section>
@@ -595,9 +768,39 @@
           <h2>Branching</h2>
         </div>
 
-        <p>Un <strong>branch</strong> è una linea di sviluppo indipendente. Lavorare su branch separati permette di sviluppare nuove funzionalità, correggere bug o fare esperimenti senza toccare il codice stabile del branch principale.</p>
+        <p>
+          Un <strong>branch</strong> è una linea di sviluppo indipendente.
+          Lavorare su branch separati permette di sviluppare nuove funzionalità,
+          correggere bug o fare esperimenti senza toccare il codice stabile del
+          branch principale.
+        </p>
 
-        <p>Il branch principale si chiama tradizionalmente <code style="font-family: var(--mono); color: var(--accent); background: rgba(88,166,255,0.1); padding: 2px 6px; border-radius: 3px;">main</code> (o <code style="font-family: var(--mono); color: var(--accent); background: rgba(88,166,255,0.1); padding: 2px 6px; border-radius: 3px;">master</code> nei repository più vecchi). Ogni nuovo branch parte da uno snapshot del branch da cui viene creato.</p>
+        <p>
+          Il branch principale si chiama tradizionalmente
+          <code
+            style="
+              font-family: var(--mono);
+              color: var(--accent);
+              background: rgba(88, 166, 255, 0.1);
+              padding: 2px 6px;
+              border-radius: 3px;
+            "
+            >main</code
+          >
+          (o
+          <code
+            style="
+              font-family: var(--mono);
+              color: var(--accent);
+              background: rgba(88, 166, 255, 0.1);
+              padding: 2px 6px;
+              border-radius: 3px;
+            "
+            >master</code
+          >
+          nei repository più vecchi). Ogni nuovo branch parte da uno snapshot
+          del branch da cui viene creato.
+        </p>
 
         <h3>Gestire i branch</h3>
         <pre><span class="line-comment"># Mostra tutti i branch locali</span>
@@ -638,11 +841,15 @@
           </div>
           <div class="cmd-card">
             <div class="cmd-name">git checkout -b &lt;nome&gt;</div>
-            <div class="cmd-desc">Crea un nuovo branch e si sposta immediatamente su di esso</div>
+            <div class="cmd-desc">
+              Crea un nuovo branch e si sposta immediatamente su di esso
+            </div>
           </div>
           <div class="cmd-card">
             <div class="cmd-name">git switch &lt;branch&gt;</div>
-            <div class="cmd-desc">Passa a un branch esistente (comando moderno)</div>
+            <div class="cmd-desc">
+              Passa a un branch esistente (comando moderno)
+            </div>
           </div>
           <div class="cmd-card">
             <div class="cmd-name">git branch -m &lt;nuovo&gt;</div>
@@ -654,7 +861,9 @@
           </div>
           <div class="cmd-card">
             <div class="cmd-name">git push origin &lt;branch&gt;</div>
-            <div class="cmd-desc">Pubblica un branch locale sul repository remoto</div>
+            <div class="cmd-desc">
+              Pubblica un branch locale sul repository remoto
+            </div>
           </div>
         </div>
       </section>
@@ -666,7 +875,11 @@
           <h2>Merging</h2>
         </div>
 
-        <p>Il <strong>merge</strong> integra le modifiche di un branch in un altro. Una volta completata una funzionalità sul suo branch, si fa il merge nel branch principale per includerla nel progetto.</p>
+        <p>
+          Il <strong>merge</strong> integra le modifiche di un branch in un
+          altro. Una volta completata una funzionalità sul suo branch, si fa il
+          merge nel branch principale per includerla nel progetto.
+        </p>
 
         <h3>Merge standard</h3>
         <pre><span class="line-comment"># Spostati sul branch di destinazione (es. main)</span>
@@ -687,7 +900,10 @@
 
         <div class="info-box">
           <strong>Merge vs Rebase</strong>
-          <strong>Merge</strong> crea un commit di unione e conserva tutta la storia. <strong>Rebase</strong> riscrive la storia per renderla lineare. Usa il merge per branch condivisi, il rebase per pulizia di branch locali prima di fare merge.
+          <strong>Merge</strong> crea un commit di unione e conserva tutta la
+          storia. <strong>Rebase</strong> riscrive la storia per renderla
+          lineare. Usa il merge per branch condivisi, il rebase per pulizia di
+          branch locali prima di fare merge.
         </div>
 
         <h3>Cherry-pick — prendere commit singoli</h3>
@@ -697,27 +913,40 @@
         <div class="cmd-grid">
           <div class="cmd-card">
             <div class="cmd-name">git merge &lt;branch&gt;</div>
-            <div class="cmd-desc">Integra un branch nel branch corrente creando un merge commit</div>
+            <div class="cmd-desc">
+              Integra un branch nel branch corrente creando un merge commit
+            </div>
           </div>
           <div class="cmd-card">
             <div class="cmd-name">git merge --no-ff &lt;branch&gt;</div>
-            <div class="cmd-desc">Forza un merge commit anche quando sarebbe possibile un fast-forward</div>
+            <div class="cmd-desc">
+              Forza un merge commit anche quando sarebbe possibile un
+              fast-forward
+            </div>
           </div>
           <div class="cmd-card">
             <div class="cmd-name">git merge --squash &lt;branch&gt;</div>
-            <div class="cmd-desc">Comprime tutti i commit del branch in uno solo prima di integrare</div>
+            <div class="cmd-desc">
+              Comprime tutti i commit del branch in uno solo prima di integrare
+            </div>
           </div>
           <div class="cmd-card">
             <div class="cmd-name">git rebase &lt;branch&gt;</div>
-            <div class="cmd-desc">Riposiziona i commit del branch corrente sopra il branch indicato</div>
+            <div class="cmd-desc">
+              Riposiziona i commit del branch corrente sopra il branch indicato
+            </div>
           </div>
           <div class="cmd-card">
             <div class="cmd-name">git cherry-pick &lt;hash&gt;</div>
-            <div class="cmd-desc">Applica un commit specifico al branch corrente</div>
+            <div class="cmd-desc">
+              Applica un commit specifico al branch corrente
+            </div>
           </div>
           <div class="cmd-card">
             <div class="cmd-name">git merge --abort</div>
-            <div class="cmd-desc">Annulla un merge in corso in caso di conflitti o errori</div>
+            <div class="cmd-desc">
+              Annulla un merge in corso in caso di conflitti o errori
+            </div>
           </div>
         </div>
       </section>
@@ -729,18 +958,40 @@
           <h2>Conflitti</h2>
         </div>
 
-        <p>Un <strong>conflitto</strong> avviene quando due branch modificano la stessa parte dello stesso file in modo diverso. Git non può decidere autonomamente quale versione mantenere e richiede l'intervento dello sviluppatore.</p>
+        <p>
+          Un <strong>conflitto</strong> avviene quando due branch modificano la
+          stessa parte dello stesso file in modo diverso. Git non può decidere
+          autonomamente quale versione mantenere e richiede l'intervento dello
+          sviluppatore.
+        </p>
 
         <h3>Come appare un conflitto nel file</h3>
         <div class="conflict-block">
           <div class="conflict-header">style.css — conflitto rilevato</div>
-          <div class="conflict-mine">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD (tuo branch)<br>background-color: #0d1117;</div>
+          <div class="conflict-mine">
+            &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD (tuo branch)<br />background-color:
+            #0d1117;
+          </div>
           <div class="conflict-sep">======= (separatore)</div>
           <div class="conflict-theirs">background-color: #ffffff;</div>
-          <div class="conflict-end">&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature/nuovo-tema (loro branch)</div>
+          <div class="conflict-end">
+            &gt;&gt;&gt;&gt;&gt;&gt;&gt; feature/nuovo-tema (loro branch)
+          </div>
         </div>
 
-        <p>Devi <strong>modificare manualmente il file</strong>, scegliere quale versione tenere (o combinare entrambe), rimuovere i marcatori di conflitto (<code style="font-family: var(--mono); color: var(--muted);">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code style="font-family: var(--mono); color: var(--muted);">=======</code>, <code style="font-family: var(--mono); color: var(--muted);">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>) e fare il commit.</p>
+        <p>
+          Devi <strong>modificare manualmente il file</strong>, scegliere quale
+          versione tenere (o combinare entrambe), rimuovere i marcatori di
+          conflitto (<code style="font-family: var(--mono); color: var(--muted)"
+            >&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code
+          >,
+          <code style="font-family: var(--mono); color: var(--muted)"
+            >=======</code
+          >,
+          <code style="font-family: var(--mono); color: var(--muted)"
+            >&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code
+          >) e fare il commit.
+        </p>
 
         <h3>Risoluzione passo per passo</h3>
         <pre><span class="line-comment"># 1. Scopri quali file sono in conflitto</span>
@@ -761,45 +1012,69 @@
 
         <div class="info-box">
           <strong>Strumenti visivi per i conflitti</strong>
-          VS Code, IntelliJ e altri editor moderni evidenziano i conflitti con pulsanti "Accept Current", "Accept Incoming", "Accept Both". Puoi anche usare <code style="font-family: var(--mono); color: var(--accent);">git mergetool</code> per aprire uno strumento di diff configurabile.
+          VS Code, IntelliJ e altri editor moderni evidenziano i conflitti con
+          pulsanti "Accept Current", "Accept Incoming", "Accept Both". Puoi
+          anche usare
+          <code style="font-family: var(--mono); color: var(--accent)"
+            >git mergetool</code
+          >
+          per aprire uno strumento di diff configurabile.
         </div>
 
         <h3>Prevenire i conflitti</h3>
-        <p>Integra spesso le modifiche dal branch principale nel tuo branch (<code style="font-family: var(--mono); color: var(--accent);">git pull</code> frequente), tieni i branch di breve durata, e coordina con il team su chi modifica quale parte del codice.</p>
+        <p>
+          Integra spesso le modifiche dal branch principale nel tuo branch
+          (<code style="font-family: var(--mono); color: var(--accent)"
+            >git pull</code
+          >
+          frequente), tieni i branch di breve durata, e coordina con il team su
+          chi modifica quale parte del codice.
+        </p>
 
         <div class="cmd-grid">
           <div class="cmd-card">
             <div class="cmd-name">git status</div>
-            <div class="cmd-desc">Identifica i file con conflitti da risolvere</div>
+            <div class="cmd-desc">
+              Identifica i file con conflitti da risolvere
+            </div>
           </div>
           <div class="cmd-card">
             <div class="cmd-name">git diff</div>
-            <div class="cmd-desc">Mostra in dettaglio tutte le differenze in conflitto</div>
+            <div class="cmd-desc">
+              Mostra in dettaglio tutte le differenze in conflitto
+            </div>
           </div>
           <div class="cmd-card">
             <div class="cmd-name">git add &lt;file risolto&gt;</div>
-            <div class="cmd-desc">Segna un conflitto come risolto aggiungendo il file allo staging</div>
+            <div class="cmd-desc">
+              Segna un conflitto come risolto aggiungendo il file allo staging
+            </div>
           </div>
           <div class="cmd-card">
             <div class="cmd-name">git merge --abort</div>
-            <div class="cmd-desc">Annulla completamente il merge e torna allo stato precedente</div>
+            <div class="cmd-desc">
+              Annulla completamente il merge e torna allo stato precedente
+            </div>
           </div>
           <div class="cmd-card">
             <div class="cmd-name">git mergetool</div>
-            <div class="cmd-desc">Apre lo strumento di merge configurato per risolvere i conflitti</div>
+            <div class="cmd-desc">
+              Apre lo strumento di merge configurato per risolvere i conflitti
+            </div>
           </div>
           <div class="cmd-card">
             <div class="cmd-name">git log --merge</div>
-            <div class="cmd-desc">Mostra i commit che hanno causato il conflitto</div>
+            <div class="cmd-desc">
+              Mostra i commit che hanno causato il conflitto
+            </div>
           </div>
         </div>
       </section>
-
     </main>
 
     <footer>
-      git --version 2.x &nbsp;·&nbsp; Guida in italiano &nbsp;·&nbsp; Aggiornata al 2025
+      git --version 2.x &nbsp;·&nbsp; Guida in italiano &nbsp;·&nbsp; Aggiornata
+      al 2025
     </footer>
-
   </body>
 </html>
