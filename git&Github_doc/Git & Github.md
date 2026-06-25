@@ -1,6 +1,6 @@
 # Git & GitHub - Guida Step by Step
 
-## Obiettivo
+## 🎯 Obiettivo
 
 Questa guida spiega come utilizzare Git e GitHub partendo da zero fino alla gestione di branch e collaborazione su progetti.
 
@@ -12,14 +12,10 @@ Questa guida spiega come utilizzare Git e GitHub partendo da zero fino alla gest
 
 Git è un sistema di controllo versione che permette di:
 
-- Tenere traccia delle modifiche ai file
-    
-- Tornare a versioni precedenti
-    
-- Lavorare su funzionalità separate tramite branch
-    
-- Collaborare con altri sviluppatori
-    
+* Tenere traccia delle modifiche ai file
+* Tornare a versioni precedenti
+* Lavorare su funzionalità separate tramite branch
+* Collaborare con altri sviluppatori
 
 ## GitHub
 
@@ -27,38 +23,34 @@ GitHub è una piattaforma online che ospita repository Git.
 
 Con GitHub puoi:
 
-- Salvare il codice nel cloud
-    
-- Collaborare con altri sviluppatori
-    
-- Gestire versioni e rilasci
-    
-- Condividere progetti
-    
+* Salvare il codice nel cloud
+* Collaborare con altri sviluppatori
+* Gestire versioni e rilasci
+* Condividere progetti
 
 ---
 
 # 2. Prima Configurazione
 
-Verificare che Git sia installato:
+Verifica installazione Git:
 
 ```bash
 git --version
 ```
 
-Configurare nome utente:
+Configura nome utente:
 
 ```bash
 git config --global user.name "Mario Rossi"
 ```
 
-Configurare email:
+Configura email:
 
 ```bash
 git config --global user.email "mario@email.com"
 ```
 
-Visualizzare la configurazione:
+Visualizza configurazione:
 
 ```bash
 git config --list
@@ -68,27 +60,9 @@ git config --list
 
 # 3. Creare un Nuovo Repository
 
-## Step 1
-
-Creare una cartella:
-
 ```bash
 mkdir mio-progetto
-```
-
-## Step 2
-
-Entrare nella cartella:
-
-```bash
 cd mio-progetto
-```
-
-## Step 3
-
-Inizializzare Git:
-
-```bash
 git init
 ```
 
@@ -98,84 +72,53 @@ Output:
 Initialized empty Git repository
 ```
 
-Ora la cartella è sotto controllo versione.
-
 ---
 
-# 4. Controllare lo Stato del Repository
-
-Visualizzare lo stato corrente:
+# 4. Controllare lo Stato
 
 ```bash
 git status
 ```
 
-Git mostrerà:
+Mostra:
 
-- File modificati
-    
-- File non tracciati
-    
-- File pronti per il commit
-    
+* File modificati
+* File non tracciati
+* File pronti per commit
 
 ---
 
-# 5. Aggiungere File al Repository
+# 5. Aggiungere File
 
-## Aggiungere un singolo file
+## Singolo file
 
 ```bash
 git add index.html
 ```
 
-## Aggiungere tutti i file
+## Tutti i file
 
 ```bash
 git add .
-```
-
-Verificare:
-
-```bash
-git status
-```
-
-I file saranno nello stato:
-
-```text
-Changes to be committed
 ```
 
 ---
 
 # 6. Creare un Commit
 
-Un commit rappresenta una fotografia del progetto.
-
-## Creare un commit
-
 ```bash
 git commit -m "Primo commit"
 ```
 
-Esempio:
-
-```bash
-git commit -m "Aggiunta homepage"
-```
-
 ---
 
-# 7. Visualizzare la Cronologia
-
-Mostrare tutti i commit:
+# 7. Cronologia
 
 ```bash
 git log
 ```
 
-Versione compatta:
+Versione breve:
 
 ```bash
 git log --oneline
@@ -183,175 +126,103 @@ git log --oneline
 
 ---
 
-# 8. Creare un Repository su GitHub
+# 8. Creare Repository su GitHub
 
-## Step 1
+1. Accedi a GitHub
+2. Clicca **New repository**
+3. Inserisci nome repository
+4. Clicca **Create repository**
 
-Accedere a GitHub.
+Esempio URL:
 
-## Step 2
-
-Cliccare su:
-
-```text
-New Repository
 ```
-
-## Step 3
-
-Inserire:
-
-- Nome repository
-    
-- Descrizione (opzionale)
-    
-
-## Step 4
-
-Cliccare:
-
-```text
-Create Repository
-```
-
-GitHub mostrerà l'URL del repository.
-
-Esempio:
-
-```text
 https://github.com/utente/mio-progetto.git
 ```
 
 ---
 
-# 9. Collegare Git al Repository GitHub
+# 9. Collegare Git a GitHub
 
-Aggiungere il repository remoto:
+## Aggiungere remote
 
 ```bash
 git remote add origin https://github.com/utente/mio-progetto.git
 ```
 
-Verificare:
+## Verificare remote
 
 ```bash
 git remote -v
-```
-
-Output:
-
-```text
-origin https://github.com/utente/mio-progetto.git
-```
-
-Se il repository remoto non è più corretto, puoi modificarlo con questi passaggi.
-
-### 1. Verifica il repository remoto attuale
-
-```bash
-git remote -v
-```
-
-Output esempio:
-
-```bash
-origin  https://github.com/utente/progetto-vecchio.git (fetch)
-origin  https://github.com/utente/progetto-vecchio.git (push)
 ```
 
 ---
 
-### 2. Modifica l'URL del repository remoto
+## 🔁 Modificare URL repository (IMPORTANTE)
+
+### Verifica attuale
+
+```bash
+git remote -v
+```
+
+### Stato del repositoty
+```bash
+git remote show origin
+```
+
+### Cambiare URL
 
 ```bash
 git remote set-url origin https://github.com/utente/progetto-nuovo.git
 ```
 
-Se usi SSH:
+### Oppure SSH
 
 ```bash
 git remote set-url origin git@github.com:utente/progetto-nuovo.git
 ```
 
----
-
-### 3. Verifica che la modifica sia stata applicata
+### Verifica
 
 ```bash
 git remote -v
 ```
 
-Output atteso:
-
-```bash
-origin  https://github.com/utente/progetto-nuovo.git (fetch)
-origin  https://github.com/utente/progetto-nuovo.git (push)
-```
-
----
-
-### 4. Test della connessione
+### Test connessione
 
 ```bash
 git fetch
 ```
 
-oppure
-
-```bash
-git pull
-```
-
-Se non ricevi errori, il nuovo repository remoto è configurato correttamente.
-
 ---
 
-## Alternativa: rimuovere e ricreare il remote
-
-Se vuoi eliminare completamente il vecchio collegamento:
+## 🧹 Alternativa: rimuovere e ricreare remote
 
 ```bash
 git remote remove origin
-```
-
-Aggiungi il nuovo:
-
-```bash
 git remote add origin https://github.com/utente/progetto-nuovo.git
 ```
 
-Verifica:
+---
+
+## Comandi remote essenziali
 
 ```bash
 git remote -v
-```
-
----
-# Modifica URL remoto
-git remote set-url origin <nuovo-url>
-
-# Rimuovi remoto
+git remote set-url origin <url>
 git remote remove origin
-
-# Aggiungi remoto
-git remote add origin <nuovo-url>
-
-# Verifica configurazione
-git remote -v
+git remote add origin <url>
 ```
-Se mi incolli l'output di `git remote -v`, posso dirti esattamente quale comando eseguire.
 
 ---
 
-# 10. Inviare il Progetto su GitHub
-
-Inviare il branch principale:
+# 10. Inviare progetto su GitHub
 
 ```bash
 git push -u origin main
 ```
 
-Le volte successive:
+Successivamente:
 
 ```bash
 git push
@@ -359,17 +230,10 @@ git push
 
 ---
 
-# 11. Clonare un Repository Esistente
-
-Scaricare un repository:
+# 11. Clonare un Repository
 
 ```bash
 git clone https://github.com/utente/progetto.git
-```
-
-Entrare nella cartella:
-
-```bash
 cd progetto
 ```
 
@@ -377,13 +241,11 @@ cd progetto
 
 # 12. Scaricare Aggiornamenti
 
-Recuperare le modifiche dal repository remoto:
-
 ```bash
 git pull
 ```
 
-Oppure:
+oppure:
 
 ```bash
 git pull origin main
@@ -391,51 +253,27 @@ git pull origin main
 
 ---
 
-# 13. Utilizzare i Branch
+# 13. Branch
 
-## Perché usare i branch?
-
-Permettono di sviluppare funzionalità senza modificare il codice principale.
-
----
-
-## Visualizzare i branch
+## Visualizzare branch
 
 ```bash
 git branch
 ```
 
----
-
-## Creare un branch
+## Creare branch
 
 ```bash
 git branch login-page
 ```
 
----
-
-## Passare a un branch
-
-```bash
-git checkout login-page
-```
-
-oppure
+## Cambiare branch
 
 ```bash
 git switch login-page
 ```
 
----
-
-## Creare e passare al branch
-
-```bash
-git checkout -b login-page
-```
-
-oppure
+## Creare + cambiare
 
 ```bash
 git switch -c login-page
@@ -443,33 +281,22 @@ git switch -c login-page
 
 ---
 
-# 14. Unire i Branch (Merge)
-
-Passare sul branch principale:
+# 14. Merge
 
 ```bash
 git switch main
-```
-
-Unire il branch:
-
-```bash
 git merge login-page
 ```
 
-Git incorporerà le modifiche nel branch principale.
-
 ---
 
-# 15. Eliminare un Branch
-
-Dopo il merge:
+# 15. Eliminare branch
 
 ```bash
 git branch -d login-page
 ```
 
-Forzare l'eliminazione:
+Forzato:
 
 ```bash
 git branch -D login-page
@@ -477,127 +304,69 @@ git branch -D login-page
 
 ---
 
-# 16. Annullare Modifiche
-
-## Ripristinare un file
+# 16. Annullare modifiche
 
 ```bash
 git restore index.html
-```
-
----
-
-## Ripristinare tutti i file
-
-```bash
 git restore .
 ```
 
 ---
 
-# 17. Annullare l'Ultimo Commit
+# 17. Annullare commit
 
-Mantenendo le modifiche:
+Mantiene modifiche:
 
 ```bash
 git reset HEAD~1
 ```
 
-Eliminando tutto:
+Elimina tutto:
 
 ```bash
 git reset --hard HEAD~1
 ```
 
-⚠️ Attenzione: il comando --hard elimina definitivamente le modifiche.
+⚠️ Attenzione: distruttivo
 
 ---
 
-# 18. Eliminare File dal Repository
-
-Eliminare un file:
+# 18. Rimuovere file
 
 ```bash
 git rm file.txt
-```
-
-Eliminare una cartella:
-
-```bash
 git rm -r cartella
-```
-
-Creare il commit:
-
-```bash
-git commit -m "Rimozione file inutili"
+git commit -m "Rimozione file"
 ```
 
 ---
 
-# 19. Confrontare le Modifiche
-
-Visualizzare le differenze:
+# 19. Confrontare modifiche
 
 ```bash
 git diff
-```
-
-Confrontare due commit:
-
-```bash
 git diff HEAD~1 HEAD
 ```
 
 ---
 
-# 20. Workflow Quotidiano
-
-Quando modifichi il progetto:
-
-## Verifica
-
-```bash
-git status
-```
-
-## Aggiungi modifiche
-
-```bash
-git add .
-```
-
-## Commit
-
-```bash
-git commit -m "Descrizione modifiche"
-```
-
-## Invio su GitHub
-
-```bash
-git push
-```
-
----
-
-# Schema Riassuntivo
+# 20. Workflow quotidiano
 
 ```text
-Modifica file
-     ↓
+modifica file
+   ↓
 git status
-     ↓
+   ↓
 git add .
-     ↓
-git commit -m "messaggio"
-     ↓
+   ↓
+git commit -m "msg"
+   ↓
 git push
 ```
 
 ---
 
-# Comandi da Memorizzare
+# 📌 Comandi fondamentali
 
 ```bash
 git status
@@ -612,5 +381,3 @@ git merge
 git diff
 git restore .
 ```
-
-Se impari questi dieci comandi sarai in grado di gestire la maggior parte dei progetti Git e GitHub.
