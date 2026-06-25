@@ -319,8 +319,175 @@ git rm -r cartella
 ```
 
 ---
+# 20. .gitignore
 
-# 20. Diff
+## Cos'è
+
+Il file `.gitignore` indica a Git quali file o cartelle non devono essere tracciati e inclusi nei commit.
+
+È utile per escludere:
+
+- file temporanei
+- cache
+- dipendenze scaricabili
+- file generati automaticamente
+- credenziali e configurazioni locali
+
+---
+
+## Creazione
+
+```bash
+touch .gitignore
+```
+
+Oppure creare manualmente un file chiamato:
+
+```text
+.gitignore
+```
+
+---
+
+## Ignorare un file
+
+```text
+config.json
+```
+
+---
+
+## Ignorare una cartella
+
+```text
+node_modules/
+```
+
+---
+
+## Ignorare un'estensione
+
+```text
+*.log
+```
+
+---
+
+## Esempio completo
+
+```text
+# Dipendenze
+node_modules/
+
+# Log
+*.log
+
+# Variabili ambiente
+.env
+
+# Cache
+.cache/
+
+# Build
+dist/
+build/
+```
+
+---
+
+## File già tracciati
+
+Se un file è già presente nel repository, aggiungerlo al `.gitignore` non basta.
+
+Rimuoverlo dall'indice Git:
+
+```bash
+git rm --cached nomefile
+```
+
+Eseguire poi un commit:
+
+```bash
+git commit -m "Rimozione file tracciato"
+```
+
+---
+
+## Verificare file ignorati
+
+```bash
+git status --ignored
+```
+
+---
+
+## Eccezioni
+
+Il simbolo `!` permette di includere un file precedentemente escluso.
+
+```text
+*.log
+!important.log
+```
+
+---
+
+## Esempi comuni
+
+### Python
+
+```text
+__pycache__/
+*.pyc
+.venv/
+.env
+```
+
+### Node.js
+
+```text
+node_modules/
+.env
+dist/
+npm-debug.log
+```
+
+### Obsidian
+
+Ignorare solo il workspace:
+
+```text
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+```
+
+Oppure tutta la configurazione:
+
+```text
+.obsidian/
+```
+
+---
+
+## Comandi correlati
+
+```bash
+git status --ignored
+git rm --cached <file>
+```
+
+---
+
+## Regola pratica
+
+✅ Ignorare cache, build, dipendenze e credenziali.
+
+❌ Non ignorare file sorgente o documentazione necessari al progetto.
+
+
+
+---
+# 21. Diff
 
 ```bash
 git diff
@@ -329,7 +496,7 @@ git diff HEAD~1 HEAD
 
 ---
 
-# 21. Workflow quotidiano
+# 22. Workflow quotidiano
 
 ```text
 modifica file
