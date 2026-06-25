@@ -170,6 +170,10 @@ git remote -v
 git remote show origin
 ```
 
+## Rinominare
+```bash 
+git remote rename <nome originale> <nuovo nome>
+```
 ### Cambiare URL
 
 ```bash
