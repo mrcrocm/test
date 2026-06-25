@@ -111,7 +111,8 @@ git log
 ```
 
 Versione breve:
-
+<!-- git log --oneline  -all --graph -->
+<!-- git log --oneline -all -->
 ```bash
 git log --oneline
 ```
