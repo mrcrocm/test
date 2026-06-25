@@ -1,11 +1,3 @@
-# Git & GitHub - Guida Step by Step
-
-## 🎯 Obiettivo
-
-Questa guida spiega come utilizzare Git e GitHub partendo da zero fino alla gestione di branch e collaborazione su progetti.
-
----
-
 # 1. Cos'è Git e Cos'è GitHub
 
 ## Git
