@@ -358,8 +358,9 @@ git branch
 git switch
 git merge
 git rebase
-git diff
+git diffS
 git restore .
+.gitignore
 ```
 ```
 
