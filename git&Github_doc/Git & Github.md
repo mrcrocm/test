@@ -1,4 +1,6 @@
-Ecco la tua versione **ottimizzata per Obsidian**, più ordinata, con struttura coerente, titoli puliti e stile da appunti tecnici.
+Ecco il tuo file **pulito, integrato e senza duplicazioni**, con la sezione **rebase inserita in modo coerente** e i riferimenti sistemati.
+
+Puoi incollarlo direttamente in Obsidian.
 
 ---
 
@@ -58,12 +60,6 @@ cd mio-progetto
 git init
 ```
 
-Output:
-
-```text
-Initialized empty Git repository
-```
-
 ---
 
 # 4. Stato del repository
@@ -74,23 +70,16 @@ git status
 
 Mostra:
 
-* File modificati
-* File non tracciati
-* File pronti per commit
+* file modificati
+* file non tracciati
+* file pronti per commit
 
 ---
 
 # 5. Aggiungere file
 
-## Singolo file
-
 ```bash
-git add index.html
-```
-
-## Tutti i file
-
-```bash
+git add nomefile
 git add .
 ```
 
@@ -106,15 +95,8 @@ git commit -m "Primo commit"
 
 # 7. Cronologia
 
-## Log completo
-
 ```bash
 git log
-```
-
-## Versione compatta
-
-```bash
 git log --oneline
 ```
 
@@ -122,10 +104,7 @@ git log --oneline
 
 # 8. Repository su GitHub
 
-1. Creare nuovo repository su GitHub
-2. Copiare URL
-
-Esempio:
+Creazione manuale su GitHub e copia URL:
 
 ```
 https://github.com/utente/mio-progetto.git
@@ -135,110 +114,54 @@ https://github.com/utente/mio-progetto.git
 
 # 9. Collegare Git a GitHub
 
-## Aggiungere remote
-
 ```bash
-git remote add origin https://github.com/utente/mio-progetto.git
-```
-
-## Verificare remote
-
-```bash
+git remote add origin <url>
 git remote -v
-```
-
----
-
-## Modificare remote
-
-### Visualizzare stato remoto
-
-```bash
 git remote show origin
 ```
 
-### Cambiare URL
+## Modificare remote
 
 ```bash
-git remote set-url origin https://github.com/utente/progetto-nuovo.git
-```
-
-### Oppure SSH
-
-```bash
-git remote set-url origin git@github.com:utente/progetto-nuovo.git
-```
-
-### Rimuovere remote
-
-```bash
+git remote set-url origin <nuovo-url>
 git remote remove origin
-```
-
-### Ricreare remote
-
-```bash
 git remote add origin <url>
 ```
 
 ---
 
-# 10. Push su GitHub
-
-## Prima volta
+# 10. Push
 
 ```bash
 git push -u origin main
-```
-
-## Successive
-
-```bash
 git push
 ```
 
 ---
 
-# 11. Clone repository
+# 11. Clone
 
 ```bash
-git clone https://github.com/utente/progetto.git
-cd progetto
+git clone <url>
 ```
 
 ---
 
-# 12. Pull aggiornamenti
+# 12. Pull
 
 ```bash
 git pull
+git pull origin main
 ```
 
 ---
 
 # 13. Branch
 
-## Visualizzare branch
-
 ```bash
 git branch
-```
-
-## Creare branch
-
-```bash
 git branch feature
-```
-
-## Cambiare branch
-
-```bash
 git switch feature
-```
-
-## Creare + switch
-
-```bash
 git switch -c feature
 ```
 
@@ -253,23 +176,124 @@ git merge feature
 
 ---
 
-# 15. Eliminare branch
+# 15. Rebase
 
-## Locale
+## Cos’è
+
+Il rebase serve a **spostare i commit di un branch sopra un altro branch**, creando una storia lineare.
+
+---
+
+## Esempio
+
+Prima:
+
+```
+main:    A --- B --- C
+                 \
+feature:           D --- E
+```
+
+Dopo rebase:
+
+```
+main:    A --- B --- C --- D' --- E'
+```
+
+---
+
+## Uso base
+
+```bash
+git switch feature
+git rebase main
+```
+
+---
+
+## Aggiornare da remoto
+
+```bash
+git fetch origin
+git rebase origin/main
+```
+
+---
+
+## Rebase interattivo
+
+```bash
+git rebase -i HEAD~3
+```
+
+Permette di:
+
+* squash commit
+* modificare messaggi
+* riordinare commit
+* eliminare commit
+
+---
+
+## Conflitti
+
+```bash
+git status
+git add .
+git rebase --continue
+```
+
+Annullare:
+
+```bash
+git rebase --abort
+```
+
+---
+
+## Rebase vs Merge
+
+### Merge
+
+```bash
+git merge main
+```
+
+* mantiene la storia originale
+* crea commit di merge
+* più sicuro in team
+
+### Rebase
+
+```bash
+git rebase main
+```
+
+* storia lineare
+* riscrive commit
+* più pulito ma da usare con attenzione
+
+---
+
+## ⚠️ Regola importante
+
+Non usare rebase su branch già pubblicati su GitHub.
+
+✔ Usalo su branch locali
+❌ Evitalo su branch già pushati
+
+---
+
+# 16. Eliminare branch
 
 ```bash
 git branch -d feature
-```
-
-## Forzato
-
-```bash
 git branch -D feature
 ```
 
 ---
 
-# 16. Ripristino modifiche
+# 17. Ripristino modifiche
 
 ```bash
 git restore file.txt
@@ -278,33 +302,25 @@ git restore .
 
 ---
 
-# 17. Reset commit
-
-## Mantiene modifiche
+# 18. Reset commit
 
 ```bash
 git reset HEAD~1
-```
-
-## Distruttivo ⚠️
-
-```bash
 git reset --hard HEAD~1
 ```
 
 ---
 
-# 18. Rimuovere file
+# 19. Rimuovere file
 
 ```bash
 git rm file.txt
-git rm -r cartella/
-git commit -m "Rimozione file"
+git rm -r cartella
 ```
 
 ---
 
-# 19. Diff (confronto modifiche)
+# 20. Diff
 
 ```bash
 git diff
@@ -313,7 +329,7 @@ git diff HEAD~1 HEAD
 
 ---
 
-# 20. Workflow quotidiano
+# 21. Workflow quotidiano
 
 ```text
 modifica file
@@ -322,7 +338,7 @@ git status
 ↓
 git add .
 ↓
-git commit -m "messaggio"
+git commit -m "msg"
 ↓
 git push
 ```
@@ -334,17 +350,24 @@ git push
 ```bash
 git status
 git add .
-git commit -m "msg"
+git commit -m ""
 git push
 git pull
 git log --oneline
 git branch
 git switch
 git merge
-git rebase   # attenzione: non usare su commit già pushati su remoto
+git rebase
 git diff
 git restore .
 ```
 
 ```
 
+---
+
+Se vuoi, posso fare il passo successivo e trasformarlo in:
+- 🧠 **scheda di ripasso ultra sintetica (1 pagina)**
+- 📊 **tabella comparativa merge vs rebase vs reset**
+- 🧩 **template Obsidian con link tra note (tipo vault Git completo)**
+```
