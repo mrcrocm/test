@@ -1,3 +1,8 @@
+Ecco la tua versione **ottimizzata per Obsidian**, più ordinata, con struttura coerente, titoli puliti e stile da appunti tecnici.
+
+---
+
+````markdown
 # 1. Cos'è Git e Cos'è GitHub
 
 ## Git
@@ -11,38 +16,33 @@ Git è un sistema di controllo versione che permette di:
 
 ## GitHub
 
-GitHub è una piattaforma online che ospita repository Git.
+:contentReference[oaicite:0]{index=0} è una piattaforma online che ospita repository Git.
 
-Con GitHub puoi:
+Permette di:
 
-- Salvare il codice nel cloud
+- Salvare codice nel cloud
 - Collaborare con altri sviluppatori
 - Gestire versioni e rilasci
 - Condividere progetti
 
 ---
 
-# 2. Prima Configurazione
+# 2. Prima configurazione
 
-Verifica installazione Git:
+## Verifica installazione
 
 ```bash
 git --version
-```
+````
 
-Configura nome utente:
+## Configurazione utente
 
 ```bash
 git config --global user.name "Mario Rossi"
-```
-
-Configura email:
-
-```bash
 git config --global user.email "mario@email.com"
 ```
 
-Visualizza configurazione:
+## Visualizzare configurazione
 
 ```bash
 git config --list
@@ -50,7 +50,7 @@ git config --list
 
 ---
 
-# 3. Creare un Nuovo Repository
+# 3. Creare un repository
 
 ```bash
 mkdir mio-progetto
@@ -66,7 +66,7 @@ Initialized empty Git repository
 
 ---
 
-# 4. Controllare lo Stato
+# 4. Stato del repository
 
 ```bash
 git status
@@ -74,13 +74,13 @@ git status
 
 Mostra:
 
-- File modificati
-- File non tracciati
-- File pronti per commit
+* File modificati
+* File non tracciati
+* File pronti per commit
 
 ---
 
-# 5. Aggiungere File
+# 5. Aggiungere file
 
 ## Singolo file
 
@@ -96,7 +96,7 @@ git add .
 
 ---
 
-# 6. Creare un Commit
+# 6. Commit
 
 ```bash
 git commit -m "Primo commit"
@@ -106,16 +106,13 @@ git commit -m "Primo commit"
 
 # 7. Cronologia
 
-<!-- git log --stat -->
+## Log completo
 
 ```bash
 git log
 ```
 
-Versione breve:
-
-<!-- git log --oneline  -all --graph -->
-<!-- git log --oneline -all -->
+## Versione compatta
 
 ```bash
 git log --oneline
@@ -123,14 +120,12 @@ git log --oneline
 
 ---
 
-# 8. Creare Repository su GitHub
+# 8. Repository su GitHub
 
-1. Accedi a GitHub
-2. Clicca **New repository**
-3. Inserisci nome repository
-4. Clicca **Create repository**
+1. Creare nuovo repository su GitHub
+2. Copiare URL
 
-Esempio URL:
+Esempio:
 
 ```
 https://github.com/utente/mio-progetto.git
@@ -154,24 +149,12 @@ git remote -v
 
 ---
 
-## 🔁 Modificare URL repository (IMPORTANTE)
+## Modificare remote
 
-### Verifica attuale
-
-```bash
-git remote -v
-```
-
-### Stato del repositoty
+### Visualizzare stato remoto
 
 ```bash
 git remote show origin
-```
-
-## Rinominare
-
-```bash
-git remote rename <nome originale> <nuovo nome>
 ```
 
 ### Cambiare URL
@@ -186,47 +169,29 @@ git remote set-url origin https://github.com/utente/progetto-nuovo.git
 git remote set-url origin git@github.com:utente/progetto-nuovo.git
 ```
 
-### Verifica
-
-```bash
-git remote -v
-```
-
-### Test connessione
-
-```bash
-git fetch
-```
-
----
-
-## 🧹 Alternativa: rimuovere e ricreare remote
+### Rimuovere remote
 
 ```bash
 git remote remove origin
-git remote add origin https://github.com/utente/progetto-nuovo.git
 ```
 
----
-
-## Comandi remote essenziali
+### Ricreare remote
 
 ```bash
-git remote -v
-git remote set-url origin <url>
-git remote remove origin
 git remote add origin <url>
 ```
 
 ---
 
-# 10. Inviare progetto su GitHub
+# 10. Push su GitHub
+
+## Prima volta
 
 ```bash
 git push -u origin main
 ```
 
-Successivamente:
+## Successive
 
 ```bash
 git push
@@ -234,7 +199,7 @@ git push
 
 ---
 
-# 11. Clonare un Repository
+# 11. Clone repository
 
 ```bash
 git clone https://github.com/utente/progetto.git
@@ -243,16 +208,10 @@ cd progetto
 
 ---
 
-# 12. Scaricare Aggiornamenti
+# 12. Pull aggiornamenti
 
 ```bash
 git pull
-```
-
-oppure:
-
-```bash
-git pull origin main
 ```
 
 ---
@@ -268,19 +227,19 @@ git branch
 ## Creare branch
 
 ```bash
-git branch login-page
+git branch feature
 ```
 
 ## Cambiare branch
 
 ```bash
-git switch login-page
+git switch feature
 ```
 
-## Creare + cambiare
+## Creare + switch
 
 ```bash
-git switch -c login-page
+git switch -c feature
 ```
 
 ---
@@ -289,49 +248,49 @@ git switch -c login-page
 
 ```bash
 git switch main
-git merge login-page
+git merge feature
 ```
 
 ---
 
 # 15. Eliminare branch
 
+## Locale
+
 ```bash
-git branch -d login-page
+git branch -d feature
 ```
 
-Forzato:
+## Forzato
 
 ```bash
-git branch -D login-page
+git branch -D feature
 ```
 
 ---
 
-# 16. Annullare modifiche
+# 16. Ripristino modifiche
 
 ```bash
-git restore index.html
+git restore file.txt
 git restore .
 ```
 
 ---
 
-# 17. Annullare commit
+# 17. Reset commit
 
-Mantiene modifiche:
+## Mantiene modifiche
 
 ```bash
 git reset HEAD~1
 ```
 
-Elimina tutto:
+## Distruttivo ⚠️
 
 ```bash
 git reset --hard HEAD~1
 ```
-
-⚠️ Attenzione: distruttivo
 
 ---
 
@@ -339,13 +298,13 @@ git reset --hard HEAD~1
 
 ```bash
 git rm file.txt
-git rm -r cartella
+git rm -r cartella/
 git commit -m "Rimozione file"
 ```
 
 ---
 
-# 19. Confrontare modifiche
+# 19. Diff (confronto modifiche)
 
 ```bash
 git diff
@@ -358,13 +317,13 @@ git diff HEAD~1 HEAD
 
 ```text
 modifica file
-   ↓
+↓
 git status
-   ↓
+↓
 git add .
-   ↓
-git commit -m "msg"
-   ↓
+↓
+git commit -m "messaggio"
+↓
 git push
 ```
 
@@ -375,14 +334,17 @@ git push
 ```bash
 git status
 git add .
-git commit -m ""
+git commit -m "msg"
 git push
 git pull
 git log --oneline
 git branch
 git switch
 git merge
-git rebase
+git rebase   # attenzione: non usare su commit già pushati su remoto
 git diff
 git restore .
 ```
+
+```
+
