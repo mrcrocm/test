@@ -4,10 +4,10 @@
 
 Git è un sistema di controllo versione che permette di:
 
-* Tenere traccia delle modifiche ai file
-* Tornare a versioni precedenti
-* Lavorare su funzionalità separate tramite branch
-* Collaborare con altri sviluppatori
+- Tenere traccia delle modifiche ai file
+- Tornare a versioni precedenti
+- Lavorare su funzionalità separate tramite branch
+- Collaborare con altri sviluppatori
 
 ## GitHub
 
@@ -15,10 +15,10 @@ GitHub è una piattaforma online che ospita repository Git.
 
 Con GitHub puoi:
 
-* Salvare il codice nel cloud
-* Collaborare con altri sviluppatori
-* Gestire versioni e rilasci
-* Condividere progetti
+- Salvare il codice nel cloud
+- Collaborare con altri sviluppatori
+- Gestire versioni e rilasci
+- Condividere progetti
 
 ---
 
@@ -74,9 +74,9 @@ git status
 
 Mostra:
 
-* File modificati
-* File non tracciati
-* File pronti per commit
+- File modificati
+- File non tracciati
+- File pronti per commit
 
 ---
 
@@ -106,13 +106,17 @@ git commit -m "Primo commit"
 
 # 7. Cronologia
 
+<!-- git log --stat -->
+
 ```bash
 git log
 ```
 
 Versione breve:
+
 <!-- git log --oneline  -all --graph -->
 <!-- git log --oneline -all -->
+
 ```bash
 git log --oneline
 ```
@@ -159,14 +163,17 @@ git remote -v
 ```
 
 ### Stato del repositoty
+
 ```bash
 git remote show origin
 ```
 
 ## Rinominare
-```bash 
+
+```bash
 git remote rename <nome originale> <nuovo nome>
 ```
+
 ### Cambiare URL
 
 ```bash
