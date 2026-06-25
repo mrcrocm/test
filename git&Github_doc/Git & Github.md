@@ -244,6 +244,103 @@ Output:
 origin https://github.com/utente/mio-progetto.git
 ```
 
+Se il repository remoto non è più corretto, puoi modificarlo con questi passaggi.
+
+### 1. Verifica il repository remoto attuale
+
+```bash
+git remote -v
+```
+
+Output esempio:
+
+```bash
+origin  https://github.com/utente/progetto-vecchio.git (fetch)
+origin  https://github.com/utente/progetto-vecchio.git (push)
+```
+
+---
+
+### 2. Modifica l'URL del repository remoto
+
+```bash
+git remote set-url origin https://github.com/utente/progetto-nuovo.git
+```
+
+Se usi SSH:
+
+```bash
+git remote set-url origin git@github.com:utente/progetto-nuovo.git
+```
+
+---
+
+### 3. Verifica che la modifica sia stata applicata
+
+```bash
+git remote -v
+```
+
+Output atteso:
+
+```bash
+origin  https://github.com/utente/progetto-nuovo.git (fetch)
+origin  https://github.com/utente/progetto-nuovo.git (push)
+```
+
+---
+
+### 4. Test della connessione
+
+```bash
+git fetch
+```
+
+oppure
+
+```bash
+git pull
+```
+
+Se non ricevi errori, il nuovo repository remoto è configurato correttamente.
+
+---
+
+## Alternativa: rimuovere e ricreare il remote
+
+Se vuoi eliminare completamente il vecchio collegamento:
+
+```bash
+git remote remove origin
+```
+
+Aggiungi il nuovo:
+
+```bash
+git remote add origin https://github.com/utente/progetto-nuovo.git
+```
+
+Verifica:
+
+```bash
+git remote -v
+```
+
+---
+# Modifica URL remoto
+git remote set-url origin <nuovo-url>
+
+# Rimuovi remoto
+git remote remove origin
+
+# Aggiungi remoto
+git remote add origin <nuovo-url>
+
+# Verifica configurazione
+git remote -v
+```
+Se mi incolli l'output di `git remote -v`, posso dirti esattamente quale comando eseguire.
+
 ---
 
 # 10. Inviare il Progetto su GitHub
