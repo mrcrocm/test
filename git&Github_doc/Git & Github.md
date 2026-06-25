@@ -382,6 +382,7 @@ git log --oneline
 git branch
 git switch
 git merge
+git rebase
 git diff
 git restore .
 ```
